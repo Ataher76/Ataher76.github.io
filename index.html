@@ -1,142 +1,1397 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ataher Ali | Academic Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root { --primary: #002b5b; --secondary: #f0f4f8; --accent: #38a1db; --white: #ffffff; }
-        body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.7; color: #333; margin: 0; background: var(--secondary); scroll-behavior: smooth; }
-        
-        /* Navigation */
-        nav { background: var(--primary); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: center; flex-wrap: wrap; }
-        nav a { color: var(--white); padding: 18px 20px; text-decoration: none; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-        nav a:hover { background: var(--accent); }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ataher Ali | Fisheries Researcher</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --deep:      #060f1e;
+      --navy:      #0b1f3a;
+      --ocean:     #0e2d52;
+      --blue:      #145da0;
+      --teal:      #1a7fad;
+      --aqua:      #21b8d4;
+      --ice:       #7dd8f0;
+      --foam:      #c8edf7;
+      --white:     #f0f8ff;
+      --muted:     #8ab4cc;
+      --card:      rgba(14,45,82,0.65);
+      --border:    rgba(33,184,212,0.18);
+      --glow:      rgba(33,184,212,0.30);
+    }
 
-        /* Header */
-        .header { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; text-align: center; padding: 80px 20px; }
-        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-        section { background: var(--white); padding: 40px; margin-bottom: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        
-        /* Typography */
-        h1 { margin: 0; font-size: 2.8rem; }
-        h2 { color: var(--primary); border-bottom: 3px solid var(--accent); padding-bottom: 10px; margin-bottom: 30px; display: inline-block; }
-        h3 { color: var(--accent); margin-top: 25px; border-left: 4px solid var(--accent); padding-left: 15px; }
-        
-        /* Elements */
-        .project-card { border-left: 5px solid var(--accent); padding-left: 20px; margin-bottom: 30px; }
-        .badge { background: #e1f5fe; color: #01579b; padding: 4px 12px; border-radius: 15px; font-size: 0.8rem; font-weight: bold; margin-right: 10px; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 10px; }
-        
-        footer { text-align: center; padding: 40px; color: #777; font-size: 0.9rem; }
-        .social-links a { color: white; margin: 0 15px; transition: 0.3s; text-decoration: none; }
-        .social-links a:hover { color: #d1d1d1; }
-    </style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--deep);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── OCEAN BACKGROUND ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: -2;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(20,93,160,0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 80% at 80% 80%, rgba(11,31,58,0.8) 0%, transparent 70%),
+        radial-gradient(ellipse 100% 100% at 50% 50%, var(--deep) 0%, #020810 100%);
+    }
+
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background-image:
+        radial-gradient(1px 1px at 15% 20%, rgba(125,216,240,0.4) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 60%, rgba(125,216,240,0.25) 0%, transparent 100%),
+        radial-gradient(2px 2px at 40% 80%, rgba(33,184,212,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 15%, rgba(125,216,240,0.3) 0%, transparent 100%);
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 64px;
+      background: rgba(6,15,30,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--aqua);
+      letter-spacing: .5px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex; gap: .25rem; list-style: none;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: .45rem .85rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .4px;
+      border-radius: 6px;
+      transition: color .25s, background .25s;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--aqua);
+      background: rgba(33,184,212,.1);
+    }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px;
+    }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--muted); border-radius: 2px; transition: .3s; }
+
+    /* ── SECTIONS ── */
+    section {
+      min-height: 100vh;
+      padding: 100px 0 80px;
+      display: flex; align-items: center;
+    }
+
+    .container {
+      width: 100%; max-width: 1100px;
+      margin: 0 auto; padding: 0 2rem;
+    }
+
+    .section-label {
+      font-family: 'Fira Code', monospace;
+      font-size: .72rem;
+      color: var(--aqua);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: .6rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .section-divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--aqua), var(--teal));
+      border-radius: 2px; margin-bottom: 3rem;
+    }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #home .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .hero-text { animation: fadeUp .9s ease both; }
+
+    .hero-greeting {
+      font-family: 'Fira Code', monospace;
+      font-size: .85rem;
+      color: var(--aqua);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: .6rem;
+    }
+
+    .hero-greeting::before {
+      content: ''; display: block;
+      width: 30px; height: 1px; background: var(--aqua);
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: .5rem;
+    }
+
+    .hero-name span { color: var(--aqua); }
+
+    .hero-title {
+      font-size: 1.05rem;
+      color: var(--muted);
+      font-weight: 400;
+      margin-bottom: .5rem;
+      line-height: 1.6;
+    }
+
+    .hero-affil {
+      font-size: .9rem;
+      color: var(--ice);
+      margin-bottom: 2rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+
+    .hero-affil i { color: var(--aqua); font-size: .8rem; }
+
+    .hero-tags {
+      display: flex; flex-wrap: wrap; gap: .5rem;
+      margin-bottom: 2rem;
+    }
+
+    .tag {
+      padding: .3rem .8rem;
+      background: rgba(33,184,212,.1);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: .75rem;
+      color: var(--ice);
+      letter-spacing: .3px;
+    }
+
+    .hero-btns {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      padding: .7rem 1.8rem;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      color: #fff;
+      border: none; border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .88rem; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(33,184,212,.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(33,184,212,.4);
+    }
+
+    .btn-outline {
+      padding: .7rem 1.8rem;
+      background: transparent;
+      color: var(--aqua);
+      border: 1px solid var(--aqua);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .88rem; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(33,184,212,.1);
+    }
+
+    /* HERO PHOTO */
+    .hero-photo-wrap {
+      display: flex; justify-content: center; align-items: center;
+      animation: fadeIn 1.2s ease both;
+    }
+
+    .hero-photo-ring {
+      position: relative;
+      width: 320px; height: 320px;
+    }
+
+    .hero-photo-ring::before {
+      content: '';
+      position: absolute; inset: -12px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, var(--aqua), var(--blue), var(--teal), var(--aqua));
+      animation: spinRing 8s linear infinite;
+      opacity: .6;
+    }
+
+    .hero-photo-ring::after {
+      content: '';
+      position: absolute; inset: -6px;
+      border-radius: 50%;
+      background: var(--deep);
+    }
+
+    @keyframes spinRing { to { transform: rotate(360deg); } }
+
+    .hero-photo-ring img {
+      position: relative; z-index: 1;
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      border: 4px solid var(--ocean);
+    }
+
+    /* Social icons in hero */
+    .hero-socials {
+      display: flex; gap: .75rem; margin-bottom: 2rem; flex-wrap: wrap;
+    }
+
+    .social-icon {
+      display: flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .9rem;
+      transition: color .2s, border-color .2s, background .2s;
+      background: rgba(14,45,82,.3);
+    }
+
+    .social-icon:hover {
+      color: var(--aqua);
+      border-color: var(--aqua);
+      background: rgba(33,184,212,.1);
+    }
+
+    /* ── ABOUT ── */
+    #about .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
+    }
+
+    .about-text p {
+      color: var(--foam);
+      line-height: 1.85;
+      font-size: .97rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.2rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700;
+      color: var(--aqua);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-top: .3rem;
+      letter-spacing: .3px;
+    }
+
+    .interests-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: .75rem;
+    }
+
+    .interest-item {
+      display: flex; align-items: center; gap: .6rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: .75rem 1rem;
+      font-size: .85rem;
+      color: var(--foam);
+      backdrop-filter: blur(8px);
+      transition: border-color .2s;
+    }
+
+    .interest-item:hover { border-color: var(--aqua); }
+
+    .interest-item i {
+      color: var(--aqua); font-size: .9rem; min-width: 16px;
+    }
+
+    /* ── TIMELINE (Education / Experience) ── */
+    .timeline { position: relative; padding-left: 2rem; }
+
+    .timeline::before {
+      content: '';
+      position: absolute; left: 7px; top: 6px; bottom: 6px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--aqua), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      animation: fadeUp .6s ease both;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute; left: -1.75rem; top: 6px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--aqua);
+      box-shadow: 0 0 12px var(--glow);
+    }
+
+    .tl-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 1rem; flex-wrap: wrap; margin-bottom: .5rem;
+    }
+
+    .tl-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--white);
+    }
+
+    .tl-period {
+      font-family: 'Fira Code', monospace;
+      font-size: .75rem;
+      color: var(--aqua);
+      background: rgba(33,184,212,.1);
+      border: 1px solid var(--border);
+      padding: .2rem .7rem; border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .tl-org {
+      color: var(--teal);
+      font-size: .88rem; font-weight: 500;
+      margin-bottom: .4rem;
+    }
+
+    .tl-gpa {
+      display: inline-block;
+      font-size: .78rem;
+      color: var(--aqua);
+      background: rgba(33,184,212,.08);
+      border: 1px solid var(--border);
+      padding: .15rem .6rem; border-radius: 4px;
+      margin-bottom: .5rem;
+    }
+
+    .tl-desc {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .tl-desc i { color: var(--aqua); }
+
+    /* ── PUBLICATIONS ── */
+    .pub-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1.25rem;
+      backdrop-filter: blur(10px);
+      transition: border-color .25s, transform .2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pub-card::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, var(--aqua), var(--blue));
+      border-radius: 4px 0 0 4px;
+    }
+
+    .pub-card:hover {
+      border-color: rgba(33,184,212,.4);
+      transform: translateX(4px);
+    }
+
+    .pub-num {
+      font-family: 'Fira Code', monospace;
+      font-size: .72rem; color: var(--aqua);
+      margin-bottom: .5rem;
+    }
+
+    .pub-title {
+      font-size: .95rem; font-weight: 600;
+      color: var(--white); line-height: 1.5;
+      margin-bottom: .5rem;
+    }
+
+    .pub-authors {
+      font-size: .82rem; color: var(--muted);
+      margin-bottom: .4rem; line-height: 1.5;
+    }
+
+    .pub-authors strong { color: var(--ice); }
+
+    .pub-journal {
+      font-size: .82rem;
+      color: var(--teal);
+      font-style: italic;
+      margin-bottom: .6rem;
+    }
+
+    .pub-meta {
+      display: flex; gap: .75rem; flex-wrap: wrap; align-items: center;
+    }
+
+    .pub-badge {
+      padding: .2rem .65rem;
+      background: rgba(33,184,212,.1);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: .73rem;
+      color: var(--ice);
+    }
+
+    .pub-link {
+      display: inline-flex; align-items: center; gap: .35rem;
+      font-size: .78rem;
+      color: var(--aqua); text-decoration: none;
+      transition: color .2s;
+    }
+
+    .pub-link:hover { color: var(--ice); }
+
+    .pub-submitted {
+      border-left-color: transparent;
+      border-left-width: 4px;
+      background: rgba(14,45,82,.3);
+    }
+
+    .pub-submitted::before {
+      background: linear-gradient(to bottom, var(--muted), var(--ocean));
+    }
+
+    .tabs {
+      display: flex; gap: .5rem; margin-bottom: 2rem; flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: .5rem 1.2rem;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--muted);
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .83rem; font-weight: 500;
+      transition: all .2s;
+    }
+
+    .tab-btn:hover, .tab-btn.active {
+      background: rgba(33,184,212,.12);
+      border-color: var(--aqua);
+      color: var(--aqua);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* ── R PACKAGE ── */
+    .package-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 2.5rem;
+      backdrop-filter: blur(10px);
+      display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
+    }
+
+    .pkg-name {
+      font-family: 'Fira Code', monospace;
+      font-size: 1.8rem; font-weight: 500;
+      color: var(--aqua);
+      margin-bottom: .5rem;
+    }
+
+    .pkg-desc {
+      font-size: .92rem; color: var(--foam);
+      line-height: 1.7; margin-bottom: 1rem;
+    }
+
+    .pkg-version {
+      font-family: 'Fira Code', monospace;
+      font-size: .78rem; color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .cran-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .6rem 1.4rem;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      color: white; text-decoration: none;
+      border-radius: 8px; font-size: .85rem; font-weight: 600;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 16px rgba(33,184,212,.25);
+    }
+
+    .cran-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(33,184,212,.4);
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;
+    }
+
+    .skill-category {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .skill-cat-title {
+      display: flex; align-items: center; gap: .7rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 600;
+      color: var(--white); margin-bottom: 1.2rem;
+    }
+
+    .skill-cat-title i { color: var(--aqua); font-size: .9rem; }
+
+    .skill-item {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: .85rem;
+    }
+
+    .skill-name { font-size: .86rem; color: var(--foam); }
+
+    .skill-bar {
+      width: 120px; height: 5px;
+      background: rgba(33,184,212,.1);
+      border-radius: 3px; overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue), var(--aqua));
+      border-radius: 3px;
+      transition: width 1s ease;
+    }
+
+    .skill-tag {
+      display: inline-block;
+      padding: .25rem .7rem;
+      background: rgba(33,184,212,.08);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: .78rem; color: var(--ice);
+      margin: .25rem;
+    }
+
+    /* ── CONFERENCES ── */
+    .conf-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem 1.75rem;
+      margin-bottom: 1.25rem;
+      backdrop-filter: blur(10px);
+      transition: border-color .2s;
+    }
+
+    .conf-card:hover { border-color: rgba(33,184,212,.35); }
+
+    .conf-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 600;
+      color: var(--white); margin-bottom: .4rem;
+    }
+
+    .conf-detail {
+      font-size: .84rem; color: var(--muted); line-height: 1.7;
+    }
+
+    .conf-detail span { color: var(--ice); }
+
+    /* ── CONTACT ── */
+    #contact { min-height: auto; padding: 80px 0; }
+
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;
+    }
+
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+      margin-bottom: 1rem;
+      backdrop-filter: blur(10px);
+      text-decoration: none;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .contact-card:hover {
+      border-color: rgba(33,184,212,.4);
+      transform: translateY(-2px);
+    }
+
+    .contact-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: rgba(33,184,212,.12);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--aqua); font-size: 1rem;
+    }
+
+    .contact-info-label {
+      font-size: .72rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: .2rem;
+    }
+
+    .contact-info-val {
+      font-size: .9rem; color: var(--white);
+      word-break: break-all;
+    }
+
+    .profiles-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: .75rem;
+    }
+
+    .profile-link {
+      display: flex; align-items: center; gap: .75rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: .85rem 1rem;
+      text-decoration: none;
+      color: var(--foam);
+      font-size: .85rem;
+      transition: border-color .2s, color .2s;
+      backdrop-filter: blur(8px);
+    }
+
+    .profile-link:hover {
+      border-color: var(--aqua);
+      color: var(--aqua);
+    }
+
+    .profile-link i {
+      font-size: 1.1rem; color: var(--aqua); min-width: 18px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: rgba(6,15,30,.8);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    footer a { color: var(--aqua); text-decoration: none; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1; transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0;
+        background: rgba(6,15,30,.97); backdrop-filter: blur(20px);
+        flex-direction: column; padding: 1rem 1.5rem 1.5rem;
+        border-bottom: 1px solid var(--border); }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      #home .container, #about .container { grid-template-columns: 1fr; }
+      .hero-photo-wrap { order: -1; }
+      .hero-photo-ring { width: 220px; height: 220px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .package-card { grid-template-columns: 1fr; }
+      .profiles-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<nav>
-    <div class="nav-container">
-        <a href="#home">Home</a>
-        <a href="#education">Education</a>
-        <a href="#research">Research</a>
-        <a href="#projects">Projects</a>
-        <a href="#volunteering">Volunteering</a>
-        <a href="#contact">Contact</a>
-    </div>
+<!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
+<nav id="navbar">
+  <a href="#home" class="nav-brand">Ataher Ali</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<div class="header" id="home">
-    <h1>Ataher Ali</h1>
-    <p style="font-size: 1.2rem; opacity: 0.9; margin-top: 10px;">Fisheries Scientist & Academic Researcher</p>
-    <div class="social-links" style="margin-top: 25px;">
-        <a href="https://github.com/Ataher76" target="_blank" title="GitHub"><i class="fab fa-github fa-2x"></i></a>
-        <a href="https://orcid.org/0009-0008-8780-0903" target="_blank" title="ORCID"><i class="fab fa-orcid fa-2x"></i></a>
-        <a href="https://www.linkedin.com/in/ataher-ali-616832180/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
-        <a href="https://scholar.google.com/citations?user=ataher76" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap fa-2x"></i></a>
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<section id="home">
+  <div class="container">
+    <div class="hero-text">
+      <div class="hero-greeting">Hello, I'm</div>
+      <h1 class="hero-name">Ataher <span>Ali</span></h1>
+      <p class="hero-title">M.S. Researcher in Fisheries Management &amp; R Developer</p>
+      <p class="hero-affil">
+        <i class="fas fa-university"></i>
+        University of Chittagong, Bangladesh
+      </p>
+      <div class="hero-tags">
+        <span class="tag">🐟 Stock Assessment</span>
+        <span class="tag">📊 R Programming</span>
+        <span class="tag">🌊 Marine Ecology</span>
+        <span class="tag">🌍 Ocean Acidification</span>
+        <span class="tag">🪸 Seaweed &amp; Mangroves</span>
+        <span class="tag">📦 CRAN Package</span>
+      </div>
+      <div class="hero-socials">
+        <a href="https://scholar.google.com/citations?user=I7Z1aw8AAAAJ&hl=en" target="_blank" class="social-icon" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+        <a href="https://www.researchgate.net/profile/Ataher-Ali" target="_blank" class="social-icon" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+        <a href="https://www.linkedin.com/in/ataher-ali-616832180/" target="_blank" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/Ataher76" target="_blank" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://orcid.org/0009-0008-8780-0903" target="_blank" class="social-icon" title="ORCID"><i class="fab fa-orcid"></i></a>
+        <a href="mailto:ataher.cu.ms@gmail.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+      <div class="hero-btns">
+        <a href="#publications" class="btn-primary"><i class="fas fa-book-open"></i> &nbsp;View Publications</a>
+        <a href="#contact" class="btn-outline"><i class="fas fa-paper-plane"></i> &nbsp;Contact Me</a>
+      </div>
     </div>
-</div>
-
-<div class="container">
-    <!-- HOME -->
-    <section>
-        <h2>About Me</h2>
-        <p>I am a fisheries scientist with a background in stock assessment and marine ecology. My research focuses on developing management frameworks for data-limited fisheries and evaluating climate change impacts in the Bay of Bengal. I am also the developer of the <strong>aLBI</strong> R package for fish stock estimation.</p>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education">
-        <h2>Education</h2>
-        <div class="project-card">
-            <strong>M.S. in Fisheries Management</strong> | GPA: 3.64<br>
-            University of Chittagong, Bangladesh (2024–2025)
-        </div>
-        <div class="project-card">
-            <strong>B.Sc. in Fisheries</strong> | CGPA: 3.75<br>
-            University of Chittagong, Bangladesh (2018–2024)
-        </div>
-    </section>
-
-    <!-- RESEARCH -->
-    <section id="research">
-        <h2>Research Experience</h2>
-        <div class="project-card">
-            <span class="badge">Research Assistant</span> <strong>Effects of Ocean Acidification on Mollusc Communities</strong><br>
-            Institute of Marine Sciences | Ministry of Education, Bangladesh (2022–2024)
-        </div>
-        <div class="project-card">
-            <span class="badge">Field & Lab Assistant</span> <strong>Seaweed Cultivation & Environmental Risks</strong><br>
-            Institute of Marine Sciences | BFRI (2020–2022)
-        </div>
-        <div class="project-card">
-            <span class="badge">Research Assistant</span> <strong>Animal Waste Silages for Nile Tilapia Diet</strong><br>
-            University Grants Commission (UGC), Bangladesh (2019–2022)
-        </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects">
-        <h2>Projects</h2>
-        
-        <h3>Current Projects</h3>
-        <ul>
-            <li><strong>aLBI Package Development:</strong> Refining a simple R package for estimation of stock status from length frequency data.</li>
-            <li><strong>Kaptai Lake Ecosystem:</strong> Modeling trophic mass-balance using the Ecopath approach.</li>
-            <li><strong>Broodstock Mapping:</strong> Modeling the distribution of Indian Major Carp habitats using MaxEnt in the Halda River.</li>
-        </ul>
-
-        <h3>Accomplished Projects</h3>
-        <ul>
-            <li><strong>aLBI (Version 0.1.9):</strong> Published a functional length-based indicator tool on CRAN.</li>
-            <li><strong>Chakaria Sundarbans Study:</strong> Completed a 50-year analysis of land cover changes in Bangladesh's mangroves.</li>
-            <li><strong>Ocean Warming Review:</strong> Published a regional review study on the implications of warming and acidification for fisheries in the Bay of Bengal.</li>
-        </ul>
-    </section>
-
-    <!-- VOLUNTEERING -->
-    <section id="volunteering">
-        <h2>Volunteering</h2>
-        <div class="project-card">
-            <strong>Chittagong University Nature Club</strong> (2019–2023)<br>
-            Participated in tree plantations, environmental clean-up activities, and sustainable environmental workshops.
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:ataher.cu.ms@gmail.com" style="color: var(--accent); text-decoration: none;">ataher.cu.ms@gmail.com</a></p>
-        <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Chattogram, Bangladesh</p>
-        <p><i class="fab fa-researchgate"></i> <a href="https://www.researchgate.net/profile/Ataher-Ali" target="_blank" style="color: var(--accent); text-decoration: none;">ResearchGate Profile</a></p>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-ring">
+        <!-- Replace mpsp.png with your actual photo filename in the same folder -->
+        <img src="mpsp.png" alt="Ataher Ali" />
+      </div>
     </div>
-</div>
+  </div>
+</section>
 
+<!-- ═══════════════════════════════ ABOUT ═══════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div>
+      <div class="section-label">01 — About</div>
+      <h2 class="section-title">Who I Am</h2>
+      <div class="section-divider"></div>
+      <div class="about-text">
+        <p>
+          I am Ataher Ali, a fisheries researcher and M.S. candidate at the University of Chittagong, Bangladesh. 
+          My work bridges computational tools and marine science — I develop open-source R packages for 
+          fisheries stock assessment and apply ecological modeling to address pressing conservation challenges 
+          across South Asian waters.
+        </p>
+        <p>
+          I am the author of the <strong style="color:var(--aqua)">aLBI</strong> R package on CRAN, designed to estimate fish stock status 
+          from length-frequency data — a tool that empowers data-limited fisheries management in developing 
+          regions. My research spans ocean acidification, seaweed ecology, mangrove dynamics, and 
+          length-based stock assessment of commercially important species.
+        </p>
+        <p>
+          I hold an IELTS score of 7.0 and am actively seeking PhD opportunities and international 
+          research collaborations in fisheries science, marine ecology, and aquatic resource management.
+        </p>
+        <div class="about-stats">
+          <div class="stat-card"><div class="stat-num">8</div><div class="stat-label">Peer-reviewed Publications</div></div>
+          <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">Manuscripts Submitted</div></div>
+          <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Research Projects</div></div>
+          <div class="stat-card"><div class="stat-num">1</div><div class="stat-label">CRAN R Package</div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="section-label" style="margin-top:0">Research Interests</div>
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--white); margin-bottom:1.5rem;">Areas of Expertise</h3>
+      <div class="interests-grid">
+        <div class="interest-item"><i class="fas fa-fish"></i> Fisheries Stock Assessment</div>
+        <div class="interest-item"><i class="fas fa-water"></i> Marine Ecology</div>
+        <div class="interest-item"><i class="fas fa-temperature-high"></i> Ocean Acidification</div>
+        <div class="interest-item"><i class="fas fa-leaf"></i> Seaweed Cultivation</div>
+        <div class="interest-item"><i class="fas fa-tree"></i> Mangrove Ecology</div>
+        <div class="interest-item"><i class="fas fa-code"></i> R Package Development</div>
+        <div class="interest-item"><i class="fas fa-chart-line"></i> Ecopath Modelling</div>
+        <div class="interest-item"><i class="fas fa-map-marked-alt"></i> Species Distribution</div>
+        <div class="interest-item"><i class="fas fa-seedling"></i> Blue Carbon</div>
+        <div class="interest-item"><i class="fas fa-binoculars"></i> Bycatch Vulnerability</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ EDUCATION ═══════════════════════════════ -->
+<section id="education">
+  <div class="container">
+    <div class="section-label">02 — Education &amp; Experience</div>
+    <h2 class="section-title">Academic Background</h2>
+    <div class="section-divider"></div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem;" class="edu-grid">
+      <!-- Education -->
+      <div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--aqua); margin-bottom:1.5rem; display:flex; align-items:center; gap:.6rem;">
+          <i class="fas fa-graduation-cap"></i> Education
+        </h3>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="tl-header">
+              <div class="tl-title">M.S. in Fisheries Management</div>
+              <div class="tl-period">Jul 2024 – Sep 2025</div>
+            </div>
+            <div class="tl-org">University of Chittagong, Bangladesh</div>
+            <div class="tl-gpa">GPA: 3.64 / 4.00</div>
+            <div class="tl-desc">
+              <strong>Thesis:</strong> Further Development of a Simple R Package (aLBI) for the Estimation of Stock Status from Length Frequency Data
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="tl-header">
+              <div class="tl-title">B.Sc. in Fisheries</div>
+              <div class="tl-period">Jan 2018 – Jul 2024</div>
+            </div>
+            <div class="tl-org">University of Chittagong, Bangladesh</div>
+            <div class="tl-gpa">CGPA: 3.75 / 4.00</div>
+            <div class="tl-desc">
+              <strong>Thesis:</strong> Development of a Simple R Package (aLBI) for the Estimation of Stock Status from Length Frequency Data
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="tl-header">
+              <div class="tl-title">IELTS</div>
+              <div class="tl-period">Language Proficiency</div>
+            </div>
+            <div class="tl-org">Overall Band Score: 7.0</div>
+            <div class="tl-desc">
+              Listening: 7.5 &nbsp;|&nbsp; Reading: 7.0 &nbsp;|&nbsp; Writing: 6.5 &nbsp;|&nbsp; Speaking: 6.5
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Job / Teaching -->
+      <div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--aqua); margin-bottom:1.5rem; display:flex; align-items:center; gap:.6rem;">
+          <i class="fas fa-briefcase"></i> Professional Experience
+        </h3>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="tl-header">
+              <div class="tl-title">Lab Assistant</div>
+              <div class="tl-period">Jan 2021 – May 2023</div>
+            </div>
+            <div class="tl-org">Nutrition Lab, Faculty of Marine Science &amp; Fisheries, University of Chittagong</div>
+            <div class="tl-desc">PI: Prof. Aysha Akhtar. Supported nutritional and biochemical analysis lab work.</div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="tl-header">
+              <div class="tl-title">Private Tutor (Grade 12)</div>
+              <div class="tl-period">Jan 2020 – Present</div>
+            </div>
+            <div class="tl-org">Independent</div>
+            <div class="tl-desc">Teaching Chemistry, Mathematics, Biology, ICT, basic HTML, and introductory C programming to secondary-level students.</div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="tl-header">
+              <div class="tl-title">Volunteer</div>
+              <div class="tl-period">Jun 2019 – Jul 2023</div>
+            </div>
+            <div class="tl-org">Chittagong University Nature Club</div>
+            <div class="tl-desc">Environmental awareness campaigns, tree plantation drives, clean-up activities, and sustainability workshops.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Research Experience -->
+    <div style="margin-top:3.5rem;">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--aqua); margin-bottom:1.5rem; display:flex; align-items:center; gap:.6rem;">
+        <i class="fas fa-flask"></i> Research Experience
+      </h3>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="tl-header">
+            <div class="tl-title">Research Assistant — Ocean Acidification &amp; Global Warming</div>
+            <div class="tl-period">Jun 2022 – Jan 2024</div>
+          </div>
+          <div class="tl-org">Institute of Marine Sciences (IMS), Ministry of Education, Bangladesh</div>
+          <div class="tl-desc">
+            Project: <em>Effects of Ocean Acidification and Global Warming on Mollusc Communities of Saint Martin's Island, Bangladesh.</em> PI: Prof. Dr. Md. Shafiqul Islam.
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="tl-header">
+            <div class="tl-title">Field &amp; Lab Assistant — Seaweed Ecology</div>
+            <div class="tl-period">Oct 2020 – Oct 2022</div>
+          </div>
+          <div class="tl-org">Institute of Marine Sciences (IMS) &amp; Bangladesh Fisheries Research Institute (BFRI)</div>
+          <div class="tl-desc">
+            Project: <em>Ecological Services and Environmental Risks Associated with Seaweed Cultivation at Cox's Bazar Coast, Bangladesh.</em> PI: Prof. Dr. Md. Shafiqul Islam.
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="tl-header">
+            <div class="tl-title">Research Assistant — Animal Feed Silage</div>
+            <div class="tl-period">Mar 2019 – Nov 2022</div>
+          </div>
+          <div class="tl-org">University Grants Commission (UGC) &amp; University of Chittagong</div>
+          <div class="tl-desc">
+            Project: <em>Production of Silages from Animal Wastes and Their Utilization in the Formulation of Diet for Nile tilapia (Oreochromis niloticus).</em> PI: Prof. Aysha Akhtar.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ RESEARCH / PUBLICATIONS ═══════════════════════════════ -->
+<section id="research">
+  <div class="container">
+    <div class="section-label">03 — R Package</div>
+    <h2 class="section-title">Software Development</h2>
+    <div class="section-divider"></div>
+    <div class="package-card reveal">
+      <div>
+        <div class="pkg-name">aLBI</div>
+        <div class="pkg-desc">
+          An open-source R package published on <strong>CRAN</strong> designed for estimating Length-Based Indicators (LBIs) for fish stock assessment. 
+          It provides a straightforward workflow for data-limited fisheries, allowing researchers and managers to derive 
+          stock status indicators directly from length-frequency data — especially valuable in resource-limited settings 
+          across South and Southeast Asia.
+        </div>
+        <div class="pkg-version">Version 0.1.9 &nbsp;|&nbsp; Ali, A., &amp; Alam, M. S. (2024)</div>
+        <div>
+          <a href="https://cran.r-project.org/web/packages/aLBI/index.html" target="_blank" class="cran-badge">
+            <i class="fas fa-cube"></i> View on CRAN
+          </a>
+        </div>
+      </div>
+      <div style="text-align:center; padding:1rem;">
+        <div style="font-family:'Fira Code',monospace; font-size:.8rem; color:var(--muted); margin-bottom:.75rem;">Install in R:</div>
+        <div style="background:rgba(6,15,30,.8); border:1px solid var(--border); border-radius:10px; padding:1rem 1.5rem; font-family:'Fira Code',monospace; font-size:.85rem; color:var(--aqua); white-space:nowrap;">
+          install.packages("aLBI")
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="container">
+    <div class="section-label">04 — Publications</div>
+    <h2 class="section-title">Research Output</h2>
+    <div class="section-divider"></div>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('published')">Published (8)</button>
+      <button class="tab-btn" onclick="switchTab('submitted')">Under Review (8)</button>
+      <button class="tab-btn" onclick="switchTab('conferences')">Conferences (2)</button>
+    </div>
+
+    <!-- Published -->
+    <div id="tab-published" class="tab-content active">
+      <div class="pub-card reveal">
+        <div class="pub-num">[8] · 2026</div>
+        <div class="pub-title">Length-Based Stock Assessment of Glossogobius giuris (tank goby) in Kaptai Lake, Bangladesh: Implications for Sustainable Fisheries</div>
+        <div class="pub-authors">Alam, M. S., <strong>Ali, A.*</strong>, Mustafa, A.</div>
+        <div class="pub-journal">Natural Resource and Modeling, 39(1), e70025</div>
+        <div class="pub-meta">
+          <span class="pub-badge">First-Authored</span>
+          <a href="https://doi.org/10.1111/nrm.70025" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i> DOI</a>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-num">[7] · 2025</div>
+        <div class="pub-title">Assessing Bycatch Vulnerability in Hilsa Gillnet Fishing Along the Southeastern Coast of Bangladesh Using Productivity and Susceptibility Analysis (PSA)</div>
+        <div class="pub-authors">Chakma, K., Sarker, M. R., Hossen, S., <strong>Ali, A.</strong>, &amp; Alam, M. S.</div>
+        <div class="pub-journal">Fisheries Management and Ecology, fme.70040</div>
+        <div class="pub-meta">
+          <a href="https://doi.org/10.1111/fme.70040" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i> DOI</a>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-num">[6] · 2025</div>
+        <div class="pub-title">Development of a simple R package (aLBI) for the estimation of stock status from the length frequency data</div>
+        <div class="pub-authors"><strong>Ali, A.*</strong>, Sarker, M. R., &amp; Alam, M. S.</div>
+        <div class="pub-journal">Fisheries Research, 288, 107467</div>
+        <div class="pub-meta">
+          <span class="pub-badge">First-Authored</span>
+          <a href="https://doi.org/10.1016/j.fishres.2025.107467" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i> DOI</a>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-num">[5] · 2025</div>
+        <div class="pub-title">Replacement of Fish Meal with Fermented Fish Offal Silage in the Diet of the Nile tilapia (Oreochromis niloticus)</div>
+        <div class="pub-authors">Akhtar, A., Zamal, H., Islam, Md. S., Naser, M. N., Abdullah Al, M., Hassan, M. L., &amp; <strong>Ali, A.</strong></div>
+        <div class="pub-journal">Egyptian Journal of Aquatic Biology and Fisheries, 29(2), 2945–2964</div>
+        <div class="pub-meta">
+          <a href="https://doi.org/10.21608/ejabf.2025.426194" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i> DOI</a>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-num">[4] · 2024</div>
+        <div class="pub-title">Present Scenario of Ocean Warming (OW) and Ocean Acidification (OA) in the Coastal and Marine Waters of the Bay of Bengal, Bangladesh</div>
+        <div class="pub-authors">Pervez, A., Islam, M. S., Monwar, M. M., <strong>Ali, A.</strong>, &amp; Kibria, G.</div>
+        <div class="pub-journal">Journal of Climate Change, 10(2), 27–39</div>
+        <div class="pub-meta">
+          <a href="https://doi.org/10.3233/JCC240012" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i> DOI</a>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-num">[3] · 2024</div>
+        <div class="pub-title">The proximate composition of Nappi and its marketing methods in Bangladesh</div>
+        <div class="pub-authors">Monwar, Md. M., Islam, Md. R., Nirjar, S. D., Khan, M. A. A., Alam, M. S., <strong>Ali, A.</strong>, &amp; Ahmed, I.</div>
+        <div class="pub-journal">Journal of Ethnic Foods, 11(1), 14</div>
+        <div class="pub-meta">
+          <a href="https://doi.org/10.1186/s42779-024-00231-9" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i> DOI</a>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-num">[2] · 2024</div>
+        <div class="pub-title">Human intervention caused massive destruction of the second largest mangrove forest, Chakaria Sundarbans, Bangladesh</div>
+        <div class="pub-authors">Hasan, M., Hassan, L., Abdullah Al, M., Kamal, A. H. M., Idris, M. H., &hellip; &amp; <strong>Ali, A.</strong></div>
+        <div class="pub-journal">Environmental Science and Pollution Research, 31(17), 25329–25341</div>
+        <div class="pub-meta">
+          <a href="https://doi.org/10.1007/s11356-024-32792-2" target="_blank" class="pub-link"><i class="fas fa-external-link-alt"></i> DOI</a>
+        </div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-num">[1] · 2020</div>
+        <div class="pub-title">Growth and Succession of Different Cultivable Seaweed Species in Cox's Bazar Coast, Bangladesh</div>
+        <div class="pub-authors">Islam, M. S., Hassan, M. L., <strong>Ali, A.</strong>, M. S. S., Islam, M. M., &amp; Sobuj, M. K. A.</div>
+        <div class="pub-journal">The Chittagong University Journal of Marine Science and Fisheries, 1(1), 113–131</div>
+      </div>
+    </div>
+
+    <!-- Submitted -->
+    <div id="tab-submitted" class="tab-content">
+      <div class="pub-card pub-submitted reveal">
+        <div class="pub-num">[S8] · Submitted at Regional Studies in Marine Science</div>
+        <div class="pub-title">A Multi-Model Framework for the Sustainable Management of Data-Limited Reservoir Fisheries: Lessons from a Socio-Economically Vital Clupeid</div>
+        <div class="pub-authors">Alam, M. S., <strong>Ali, A.</strong></div>
+        <div class="pub-meta"><span class="pub-badge" style="color:var(--muted)">Submitted</span></div>
+      </div>
+      <div class="pub-card pub-submitted reveal">
+        <div class="pub-num">[S7] · Submitted at Environmental Management</div>
+        <div class="pub-title">Mangroves in Bangladesh: A comprehensive review in light of distribution, biodiversity, ecosystem services, threats, and conservation</div>
+        <div class="pub-authors">Monware, M.M., Chowdhury, M. E., Monzer, M. A., <strong>Ali, A.</strong>, Islam, M. R., Nasrin, T., Biswash, K., Kibria, G.</div>
+        <div class="pub-meta"><span class="pub-badge" style="color:var(--muted)">Submitted</span></div>
+      </div>
+      <div class="pub-card pub-submitted reveal">
+        <div class="pub-num">[S6] · In Review at Inland Waters</div>
+        <div class="pub-title">Ecosystem Modeling of Kaptai Lake, Rangamati: A Mass-Balance Approach Using the Ecopath Model</div>
+        <div class="pub-authors">Chakma, K., <strong>Ali, A.</strong>, Alam, M. S.</div>
+        <div class="pub-meta"><span class="pub-badge" style="color:var(--muted)">In Review</span></div>
+      </div>
+      <div class="pub-card pub-submitted reveal">
+        <div class="pub-num">[S5] · In Review at Canadian Journal of Fisheries and Aquatic Sciences</div>
+        <div class="pub-title">Multi-Model Length Based Stock Assessment of Macrognathus pancalus (The Barred Spiny Eel) in Kaptai Lake, Bangladesh</div>
+        <div class="pub-authors">Islam, M. R., Alam, M. S., Nakib, N., Paran, M. S., &amp; <strong>Ali, A.</strong></div>
+        <div class="pub-meta"><span class="pub-badge" style="color:var(--muted)">In Review</span></div>
+      </div>
+      <div class="pub-card pub-submitted reveal">
+        <div class="pub-num">[S4] · Submitted at Aquatic Conservation: Marine and Freshwater Ecosystems</div>
+        <div class="pub-title">Stock Status of Ompok bimaculatus in Kaptai Lake: A Length-Based Approach for Sustainable Fisheries Management</div>
+        <div class="pub-authors">Nakib, N., Alam, M. S., Islam, M. R., <strong>Ali, A.</strong>, Paran, M. S.</div>
+        <div class="pub-meta"><span class="pub-badge" style="color:var(--muted)">Submitted</span></div>
+      </div>
+      <div class="pub-card pub-submitted reveal">
+        <div class="pub-num">[S3] · In Review at Ecohydrology and Hydrobiology</div>
+        <div class="pub-title">Modeling the Distribution of Indian Major Carp Brood Habitats Using MaxEnt in the Halda River, Bangladesh</div>
+        <div class="pub-authors">Mamun, R., <strong>Ali, A.</strong>, Tahura, U., Paran, M. S., Alam, M. S.</div>
+        <div class="pub-meta"><span class="pub-badge" style="color:var(--muted)">In Review</span></div>
+      </div>
+      <div class="pub-card pub-submitted reveal">
+        <div class="pub-num">[S2] · In Review at Regional Studies in Marine Science</div>
+        <div class="pub-title">Evaluating the Blue Carbon Sequestration Potential of Cultivable Seaweeds in the Coastal Waters of Southeastern Bangladesh</div>
+        <div class="pub-authors">Hassan, M.L., Molla, M.H.R., <strong>Ali, A.</strong>, Islam, M. M., Uddin, M.S., Islam, M.S.</div>
+        <div class="pub-meta"><span class="pub-badge" style="color:var(--muted)">In Review</span></div>
+      </div>
+      <div class="pub-card pub-submitted reveal">
+        <div class="pub-num">[S1] · In Final Review at Limnology</div>
+        <div class="pub-title">First Baseline Study of Seasonal Zooplankton Dynamics and Their Environmental Drivers in the Sangu River Estuary, Bangladesh</div>
+        <div class="pub-authors">Monwar, M.M., Islam, M.R., <strong>Ali, A.</strong>, Das, P., Bhuiyan, M.K.A.</div>
+        <div class="pub-meta"><span class="pub-badge" style="color:var(--muted)">Final Review</span></div>
+      </div>
+    </div>
+
+    <!-- Conferences -->
+    <div id="tab-conferences" class="tab-content">
+      <div class="conf-card reveal">
+        <div class="conf-name">1st International Postgraduate Symposium on Food Security 2022 (IPSyoFS-22)</div>
+        <div class="conf-detail">
+          <span>Organizer:</span> Faculty of Fisheries and Food Science (UMT) &amp; Institut Pertanian Bogor (IPB), Indonesia<br>
+          <span>Date:</span> 25 August 2022 &nbsp;|&nbsp; <span>Type:</span> Oral Presentation<br>
+          <span>Paper:</span> Human interaction caused land cover changes of Chakaria Sundarban mangrove forest in Bangladesh: a fifty-years study
+        </div>
+      </div>
+      <div class="conf-card reveal">
+        <div class="conf-name">Hill Tracts River Conservation Conference</div>
+        <div class="conf-detail">
+          <span>Organizer:</span> National River Conservation, Bangladesh<br>
+          <span>Date:</span> 19–20 April 2019 &nbsp;|&nbsp; <span>Venue:</span> Hill View Convention Center, Bandarban, Chattogram, Bangladesh
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ SKILLS ═══════════════════════════════ -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">05 — Skills</div>
+    <h2 class="section-title">Expertise &amp; Tools</h2>
+    <div class="section-divider"></div>
+
+    <div class="skills-grid">
+      <div class="skill-category reveal">
+        <div class="skill-cat-title"><i class="fas fa-code"></i> Programming</div>
+        <div class="skill-item">
+          <span class="skill-name">R Programming</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Python</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:30%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">C Programming</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:55%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">HTML</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-category reveal">
+        <div class="skill-cat-title"><i class="fas fa-tools"></i> Software Tools</div>
+        <div>
+          <span class="skill-tag">Microsoft Office 2019</span>
+          <span class="skill-tag">ArcGIS Desktop 10.8</span>
+          <span class="skill-tag">Adobe Photoshop</span>
+          <span class="skill-tag">Adobe Illustrator</span>
+          <span class="skill-tag">Zotero 7.0</span>
+          <span class="skill-tag">CRAN Package Dev</span>
+        </div>
+      </div>
+
+      <div class="skill-category reveal">
+        <div class="skill-cat-title"><i class="fas fa-flask"></i> Lab Techniques</div>
+        <div>
+          <span class="skill-tag">Proximate Composition Analysis</span>
+          <span class="skill-tag">Water Quality Analysis</span>
+          <span class="skill-tag">Live Food Culture</span>
+          <span class="skill-tag">Microalgae Cultivation</span>
+          <span class="skill-tag">Artemia Cultivation</span>
+          <span class="skill-tag">Field Sample Collection</span>
+          <span class="skill-tag">Sample Preservation &amp; Sorting</span>
+        </div>
+      </div>
+
+      <div class="skill-category reveal">
+        <div class="skill-cat-title"><i class="fas fa-language"></i> Language</div>
+        <div class="skill-item">
+          <span class="skill-name">English (IELTS 7.0)</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Bengali (Native)</span>
+          <div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CONTACT ═══════════════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">06 — Contact</div>
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="section-divider"></div>
+
+    <div class="contact-grid">
+      <div>
+        <p style="color:var(--foam); line-height:1.8; margin-bottom:2rem; font-size:.95rem;">
+          I am open to research collaborations, PhD opportunities, and discussions on fisheries science, 
+          marine ecology, and R package development. Feel free to reach out!
+        </p>
+        <a href="mailto:ataher.cu.ms@gmail.com" class="contact-card">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div><div class="contact-info-label">Email</div><div class="contact-info-val">ataher.cu.ms@gmail.com</div></div>
+        </a>
+        <div class="contact-card" style="cursor:default;">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><div class="contact-info-label">Location</div><div class="contact-info-val">Chattogram 4331, Bangladesh</div></div>
+        </div>
+        <div class="contact-card" style="cursor:default;">
+          <div class="contact-icon"><i class="fas fa-university"></i></div>
+          <div><div class="contact-info-label">Affiliation</div><div class="contact-info-val">University of Chittagong, Dept. of Fisheries</div></div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--white); margin-bottom:1.2rem;">Research Profiles</h3>
+        <div class="profiles-grid">
+          <a href="https://scholar.google.com/citations?user=I7Z1aw8AAAAJ&hl=en" target="_blank" class="profile-link">
+            <i class="fas fa-graduation-cap"></i> Google Scholar
+          </a>
+          <a href="https://www.researchgate.net/profile/Ataher-Ali" target="_blank" class="profile-link">
+            <i class="fab fa-researchgate"></i> ResearchGate
+          </a>
+          <a href="https://orcid.org/0009-0008-8780-0903" target="_blank" class="profile-link">
+            <i class="fab fa-orcid"></i> ORCID
+          </a>
+          <a href="https://www.linkedin.com/in/ataher-ali-616832180/" target="_blank" class="profile-link">
+            <i class="fab fa-linkedin-in"></i> LinkedIn
+          </a>
+          <a href="https://github.com/Ataher76" target="_blank" class="profile-link">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="https://cran.r-project.org/web/packages/aLBI/index.html" target="_blank" class="profile-link">
+            <i class="fas fa-cube"></i> CRAN (aLBI)
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
 <footer>
-    &copy; 2026 Ataher Ali. Professional Academic Portfolio.
+  <p>© 2025 <a href="#home">Ataher Ali</a> &nbsp;|&nbsp; Fisheries Researcher, University of Chittagong &nbsp;|&nbsp; Built with ❤️ for GitHub Pages</p>
 </footer>
 
+<!-- ═══════════════════════════════ JS ═══════════════════════════════ -->
+<script>
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Active nav on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navAs    = document.querySelectorAll('.nav-links a');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navAs.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(s => observer.observe(s));
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => revealObs.observe(el));
+
+  // Tabs
+  function switchTab(name) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Responsive education grid
+  function checkGrid() {
+    const g = document.querySelector('.edu-grid');
+    if (!g) return;
+    g.style.gridTemplateColumns = window.innerWidth < 768 ? '1fr' : '1fr 1fr';
+  }
+  checkGrid();
+  window.addEventListener('resize', checkGrid);
+</script>
 </body>
 </html>
