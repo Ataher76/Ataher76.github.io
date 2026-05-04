@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --primary: #002b5b; --secondary: #f0f4f8; --accent: #38a1db; --white: #ffffff; }
-        body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.7; color: #333; margin: 0; background: var(--secondary); }
+        body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.7; color: #333; margin: 0; background: var(--secondary); scroll-behavior: smooth; }
         
         /* Navigation */
         nav { background: var(--primary); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
@@ -15,7 +15,7 @@
         nav a { color: var(--white); padding: 18px 20px; text-decoration: none; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         nav a:hover { background: var(--accent); }
 
-        /* Layout */
+        /* Header */
         .header { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; text-align: center; padding: 80px 20px; }
         .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
         section { background: var(--white); padding: 40px; margin-bottom: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
@@ -23,13 +23,17 @@
         /* Typography */
         h1 { margin: 0; font-size: 2.8rem; }
         h2 { color: var(--primary); border-bottom: 3px solid var(--accent); padding-bottom: 10px; margin-bottom: 30px; display: inline-block; }
-        h3 { color: var(--accent); margin-top: 25px; }
+        h3 { color: var(--accent); margin-top: 25px; border-left: 4px solid var(--accent); padding-left: 15px; }
         
         /* Elements */
-        .btn { background: var(--accent); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; }
         .project-card { border-left: 5px solid var(--accent); padding-left: 20px; margin-bottom: 30px; }
         .badge { background: #e1f5fe; color: #01579b; padding: 4px 12px; border-radius: 15px; font-size: 0.8rem; font-weight: bold; margin-right: 10px; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+        
         footer { text-align: center; padding: 40px; color: #777; font-size: 0.9rem; }
+        .social-links a { color: white; margin: 0 15px; transition: 0.3s; text-decoration: none; }
+        .social-links a:hover { color: #d1d1d1; }
     </style>
 </head>
 <body>
@@ -47,10 +51,12 @@
 
 <div class="header" id="home">
     <h1>Ataher Ali</h1>
-    <p style="font-size: 1.2rem; opacity: 0.9;">Academic Researcher & Fisheries Scientist</p>
-    <div style="margin-top: 20px;">
-        <a href="https://github.com/Ataher76" style="color: white; margin: 0 15px;"><i class="fab fa-github fa-2x"></i></a>
-        <a href="https://orcid.org/0000-0003-2415-4127" style="color: white; margin: 0 15px;"><i class="fab fa-orcid fa-2x"></i></a>
+    <p style="font-size: 1.2rem; opacity: 0.9; margin-top: 10px;">Fisheries Scientist & Academic Researcher</p>
+    <div class="social-links" style="margin-top: 25px;">
+        <a href="https://github.com/Ataher76" target="_blank" title="GitHub"><i class="fab fa-github fa-2x"></i></a>
+        <a href="https://orcid.org/0009-0008-8780-0903" target="_blank" title="ORCID"><i class="fab fa-orcid fa-2x"></i></a>
+        <a href="https://www.linkedin.com/in/ataher-ali-616832180/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
+        <a href="https://scholar.google.com/citations?user=ataher76" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap fa-2x"></i></a>
     </div>
 </div>
 
@@ -58,7 +64,7 @@
     <!-- HOME -->
     <section>
         <h2>About Me</h2>
-        <p>I am a highly motivated fisheries scientist with a strong background in stock assessment and marine ecology. Currently, I am focused on developing R-based packages (aLBI) for data-limited fisheries and evaluating climate change impacts in the Bay of Bengal.</p>
+        <p>I am a fisheries scientist with a background in stock assessment and marine ecology. My research focuses on developing management frameworks for data-limited fisheries and evaluating climate change impacts in the Bay of Bengal. I am also the developer of the <strong>aLBI</strong> R package for fish stock estimation.</p>
     </section>
 
     <!-- EDUCATION -->
@@ -70,21 +76,24 @@
         </div>
         <div class="project-card">
             <strong>B.Sc. in Fisheries</strong> | CGPA: 3.75<br>
-            University of Chittagong, Bangladesh (2018–2024)[cite: 2]
+            University of Chittagong, Bangladesh (2018–2024)
         </div>
     </section>
 
     <!-- RESEARCH -->
     <section id="research">
         <h2>Research Experience</h2>
-        <p>My research spans ocean acidification, mangrove conservation, and mathematical modeling of fish stocks[cite: 2].</p>
         <div class="project-card">
-            <span class="badge">RA</span> <strong>Effects of Ocean Acidification on Mollusc Communities</strong><br>
-            Institute of Marine Sciences | Ministry of Education (2022–2024)[cite: 2]
+            <span class="badge">Research Assistant</span> <strong>Effects of Ocean Acidification on Mollusc Communities</strong><br>
+            Institute of Marine Sciences | Ministry of Education, Bangladesh (2022–2024)
         </div>
         <div class="project-card">
-            <span class="badge">Field Asst</span> <strong>Seaweed Cultivation & Environmental Risks</strong><br>
-            Institute of Marine Sciences | BFRI (2020–2022)[cite: 2]
+            <span class="badge">Field & Lab Assistant</span> <strong>Seaweed Cultivation & Environmental Risks</strong><br>
+            Institute of Marine Sciences | BFRI (2020–2022)
+        </div>
+        <div class="project-card">
+            <span class="badge">Research Assistant</span> <strong>Animal Waste Silages for Nile Tilapia Diet</strong><br>
+            University Grants Commission (UGC), Bangladesh (2019–2022)
         </div>
     </section>
 
@@ -94,14 +103,16 @@
         
         <h3>Current Projects</h3>
         <ul>
-            <li><strong>aLBI Package Development:</strong> Further refinement of the simple R package for estimation of stock status from length frequency data[cite: 2].</li>
-            <li><strong>Kaptai Lake Ecosystem:</strong> Trophic mass-balance modeling using Ecopath[cite: 2].</li>
+            <li><strong>aLBI Package Development:</strong> Refining a simple R package for estimation of stock status from length frequency data.</li>
+            <li><strong>Kaptai Lake Ecosystem:</strong> Modeling trophic mass-balance using the Ecopath approach.</li>
+            <li><strong>Broodstock Mapping:</strong> Modeling the distribution of Indian Major Carp habitats using MaxEnt in the Halda River.</li>
         </ul>
 
         <h3>Accomplished Projects</h3>
         <ul>
-            <li><strong>aLBI (Version 0.1.9):</strong> Successfully developed and published a length-based indicator tool on CRAN[cite: 2].</li>
-            <li><strong>Chakaria Sundarbans Study:</strong> 50-year analysis of land cover changes due to human intervention[cite: 2].</li>
+            <li><strong>aLBI (Version 0.1.9):</strong> Published a functional length-based indicator tool on CRAN.</li>
+            <li><strong>Chakaria Sundarbans Study:</strong> Completed a 50-year analysis of land cover changes in Bangladesh's mangroves.</li>
+            <li><strong>Ocean Warming Review:</strong> Published a regional review study on the implications of warming and acidification for fisheries in the Bay of Bengal.</li>
         </ul>
     </section>
 
@@ -109,18 +120,18 @@
     <section id="volunteering">
         <h2>Volunteering</h2>
         <div class="project-card">
-            <strong>Chittagong University Nature Club</strong> (2019–2023)[cite: 2]<br>
-            Organized environmental awareness campaigns, tree plantations, and sustainable workshops[cite: 2].
+            <strong>Chittagong University Nature Club</strong> (2019–2023)<br>
+            Participated in tree plantations, environmental clean-up activities, and sustainable environmental workshops.
         </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact">
         <h2>Contact</h2>
-        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> ataher.cu.ms@gmail.com[cite: 2]</p>
-        <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Chattogram, Bangladesh[cite: 2]</p>
-        <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/ataher-ali" style="color: var(--accent);">LinkedIn Profile</a></p>
-    </section>
+        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:ataher.cu.ms@gmail.com" style="color: var(--accent); text-decoration: none;">ataher.cu.ms@gmail.com</a></p>
+        <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Chattogram, Bangladesh</p>
+        <p><i class="fab fa-researchgate"></i> <a href="https://www.researchgate.net/profile/Ataher-Ali" target="_blank" style="color: var(--accent); text-decoration: none;">ResearchGate Profile</a></p>
+    </div>
 </div>
 
 <footer>
